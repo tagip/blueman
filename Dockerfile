@@ -9,4 +9,6 @@ RUN curl -sS http://blueman.pixelfusion.co.nz/installer.php | php && \
 
 RUN apk del curl
 
-ENTRYPOINT ["/bin/sh"]
+COPY ./docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
