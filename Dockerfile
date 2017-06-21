@@ -1,7 +1,7 @@
 FROM php:7-alpine
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache curl sh
+    apk add --no-cache curl
 
 RUN curl -sS http://blueman.pixelfusion.co.nz/installer.php | php && \
   mv blueman.phar /usr/local/bin/blueman && \
@@ -9,4 +9,4 @@ RUN curl -sS http://blueman.pixelfusion.co.nz/installer.php | php && \
 
 RUN apk del curl
 
-ENTRYPOINT ["blueman"]
+ENTRYPOINT ["/bin/sh"]
